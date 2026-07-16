@@ -1,8 +1,13 @@
 [workspace]
 resolver = "2"
-members = [
-    "contracts/stellarkraal",
-    "contracts/carbon_registry",
-    "contracts/carbon_credit",
-    "contracts/carbon_marketplace",
-]
+members = ["contracts/stellarkraal", "contracts/carbon_oracle"]
+
+[profile.release]
+opt-level = "z"
+overflow-checks = true
+debug = 0
+strip = "symbols"
+debug-assertions = false
+panic = "abort"
+codegen-units = 1
+lto = true
